@@ -1,0 +1,1245 @@
+/* ===== RESET ===== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== ROOT ===== */
+
+:root {
+  /* Backgrounds */
+  --bg-main: #0b0f1a;
+  --bg-secondary: #111827;
+  --bg-soft: #0a0f1c;
+  --bg-elevated: rgba(255, 255, 255, 0.03);
+
+  /* NAV */
+  --nav-bg: rgba(5, 8, 16, 0.6);
+  --nav-bg-scrolled: rgba(17, 24, 39, 0.75);
+
+  /* Text */
+  --text-main: #f9fafb;
+  --text-secondary: #9ca3af;
+  --text-muted: #888;
+
+  /* Accent */
+  --accent: #6366f1;
+  --accent-secondary: #8c00ff;
+  --accent-cyan: #00f0ff;
+
+  /* Borders */
+  --border-soft: rgba(255, 255, 255, 0.08);
+  /* ===== PROJECTS SYSTEM ===== */
+
+  /* Gradientes sección */
+  --projects-gradient-start: #060a14;
+  --projects-gradient-end: #0a0f1c;
+
+  /* Card */
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-border: rgba(255, 255, 255, 0.06);
+  --card-hover-border: rgba(0, 240, 255, 0.3);
+  --card-hover-shadow: rgba(0, 240, 255, 0.15);
+
+  /* Mockups */
+  --device-screen-dark: #111;
+  --device-base-gradient: linear-gradient(to bottom, #444, #222);
+  --iphone-border: #1a1a1a;
+
+  /* Glow */
+  --glow-primary: rgba(0, 240, 255, 0.15);
+  --glow-secondary: rgba(140, 0, 255, 0.15);
+
+  /* Philosophy bg */
+  --philosophy-bg-start: #050810;
+  --philosophy-bg-end: #0a0f1c;
+  /* ===== HERO MOCKUP SYSTEM ===== */
+
+  --mockup-bg: var(--bg-secondary);
+  --mockup-header-bg: rgba(255, 255, 255, 0.03);
+  --mockup-stat-bg: rgba(255, 255, 255, 0.05);
+  --mockup-small-bg: rgba(255, 255, 255, 0.04);
+
+  --mockup-chart-start: rgba(99, 102, 241, 0.3);
+  --mockup-chart-end: rgba(99, 102, 241, 0.05);
+}
+/* ===== LIGHT MODE ===== */
+body.light-mode {
+  --bg-main: #f9fafb;
+  --bg-secondary: #ffffff;
+  --bg-soft: #f4f6fb;
+  --bg-elevated: #ffffff;
+  /* NAV LIGHT */
+  --nav-bg: rgba(255, 255, 255, 0.6);
+  --nav-bg-scrolled: rgba(255, 255, 255, 0.85);
+
+  --text-main: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #666;
+
+  --accent: #4f46e5;
+  --accent-secondary: #7c3aed;
+  --accent-cyan: #0ea5e9;
+
+  --border-soft: rgba(0, 0, 0, 0.08);
+  /* ===== LIGHT PROJECTS ===== */
+
+  --projects-gradient-start: #f4f6fb;
+  --projects-gradient-end: #ffffff;
+
+  --card-bg: #ffffff;
+  --card-border: rgba(0, 0, 0, 0.06);
+  --card-hover-border: var(--accent);
+  --card-hover-shadow: rgba(79, 70, 229, 0.15);
+
+  --device-screen-dark: #f3f4f6;
+  --device-base-gradient: linear-gradient(to bottom, #ddd, #bbb);
+  --iphone-border: #ddd;
+
+  --glow-primary: rgba(14, 165, 233, 0.15);
+  --glow-secondary: rgba(124, 58, 237, 0.15);
+
+  --philosophy-bg-start: #f9fafb;
+  --philosophy-bg-end: #eef2ff;
+  /* ===== HERO MOCKUP LIGHT ===== */
+
+  --mockup-bg: #ffffff;
+  --mockup-header-bg: #f3f4f6;
+
+  --mockup-stat-bg: #e5e7eb;
+  --mockup-small-bg: #e5e7eb;
+
+  --mockup-chart-start: rgba(79, 70, 229, 0.25);
+  --mockup-chart-end: rgba(79, 70, 229, 0.05);
+}
+/* ===== BODY ===== */
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+body.menu-open {
+  overflow: hidden;
+}
+html {
+  scroll-behavior: smooth;
+}
+h1,
+h2,
+.logo {
+  font-family: "Space Grotesk", sans-serif;
+}
+/* ===== NAVBAR ===== */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(20px);
+  background: var(--nav-bg);
+  z-index: 1000;
+}
+
+.navbar.scrolled {
+  background: var(--nav-bg-scrolled);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+/* Logo */
+
+.logo {
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+/* ===== HAMBURGER ===== */
+
+.hamburger {
+  width: 30px;
+  height: 18px;
+  position: relative;
+  cursor: pointer;
+}
+.hamburger {
+  display: none;
+}
+.hamburger span {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-cyan);
+  transition: 0.4s ease;
+}
+
+.hamburger span:nth-child(1) {
+  top: 0;
+}
+
+.hamburger span:nth-child(2) {
+  bottom: 0;
+}
+
+/* Animación a X */
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 8px;
+}
+
+.hamburger.active span:nth-child(2) {
+  transform: rotate(-45deg);
+  bottom: 8px;
+}
+
+/* Links */
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: 0.3s ease;
+  position: relative;
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+.nav-links a:hover {
+  color: var(--text-main);
+}
+.nav-links a:hover::after {
+  width: 100%;
+}
+/* Toggle */
+
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border-soft);
+  border-radius: 50px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  transition: 0.3s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+}
+/* ===== HERO ===== */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 8%;
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  width: 100%;
+}
+/* ===== LEFT ===== */
+
+.hero-left {
+  max-width: 550px;
+}
+
+.hero-left h1 {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero-left h1 span {
+  color: var(--accent);
+}
+
+.hero-left p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* ===== BUTTONS ===== */
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.btn-primary {
+  padding: 12px 28px;
+  background: var(--accent);
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  padding: 12px 28px;
+  border: 1px solid var(--border-soft);
+  border-radius: 50px;
+  text-decoration: none;
+  color: var(--text-main);
+  transition: 0.3s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent);
+}
+
+/* ===== RIGHT - MOCKUP ===== */
+
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1200px;
+  position: relative;
+}
+/* Gradiente decorativo */
+.hero-right::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.25) 0%,
+    transparent 60%
+  );
+  filter: blur(80px);
+  z-index: 0;
+}
+
+/* ===== MOCKUP 3D ===== */
+
+.mockup {
+  position: relative;
+  width: 440px;
+  height: 320px;
+  background: var(--mockup-bg);
+  border-radius: 20px;
+  border: 1px solid var(--border-soft);
+  overflow: hidden;
+  z-index: 1;
+  transform-style: preserve-3d;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow:
+    0 40px 100px rgba(0, 0, 0, 0.6),
+    0 15px 40px rgba(99, 102, 241, 0.15);
+}
+/* Animación flotante */
+@keyframes floatMockup {
+  0% {
+    transform: perspective(1200px) rotateY(-8deg) rotateX(4deg) translateY(0px);
+  }
+  50% {
+    transform: perspective(1200px) rotateY(-8deg) rotateX(4deg)
+      translateY(-15px);
+  }
+  100% {
+    transform: perspective(1200px) rotateY(-8deg) rotateX(4deg) translateY(0px);
+  }
+}
+/* Mockup Header */
+.mockup-header {
+  height: 50px;
+  background: var(--mockup-header-bg);
+  border-bottom: 1px solid var(--border-soft);
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+}
+.dots span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+  background: rgba(255, 255, 255, 0.2);
+}
+/* Mockup Content */
+.mockup-content {
+  padding: 20px;
+}
+.dashboard-top {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.stat-box {
+  flex: 1;
+  height: 60px;
+  background: var(--mockup-stat-bg);
+  border-radius: 10px;
+}
+.dashboard-chart {
+  height: 80px;
+  background: linear-gradient(
+    135deg,
+    var(--mockup-chart-start),
+    var(--mockup-chart-end)
+  );
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+.dashboard-bottom {
+  display: flex;
+  gap: 12px;
+}
+.small-card {
+  flex: 1;
+  height: 50px;
+  background: var(--mockup-small-bg);
+  border-radius: 8px;
+}
+
+/* ===== SOBRE XQUIS DIGITAL ===== */
+
+.about {
+  padding: 120px 8%;
+  position: relative;
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(0, 240, 255, 0.08),
+      transparent 40%
+    ),
+    radial-gradient(circle at 80% 70%, rgba(140, 0, 255, 0.08), transparent 40%);
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.section-tag {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent-cyan);
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.about h2 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  line-height: 1.3;
+}
+
+.about p {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 500px;
+}
+
+.about-line {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-cyan), #8c00ff);
+  margin-top: 40px;
+  border-radius: 4px;
+  box-shadow: 0 0 15px var(--accent-cyan);
+}
+
+/* ===== IMAGEN FUTURISTA ===== */
+
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.image-frame {
+  position: relative;
+  padding: 15px;
+  border-radius: 20px;
+  background: var(--mockup-header-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s ease;
+}
+
+.image-frame::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 22px;
+  background: linear-gradient(
+    45deg,
+    var(--accent-cyan),
+    var(--accent-secondary)
+  );
+  z-index: -1;
+  filter: blur(20px);
+  opacity: 0.6;
+  animation: borderGlow 6s linear infinite;
+}
+
+.image-frame img {
+  width: 320px;
+  border-radius: 15px;
+  display: block;
+}
+
+/* Animación glow */
+@keyframes borderGlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Hover sutil */
+.image-frame:hover {
+  transform: translateY(-10px);
+}
+/* ===== SERVICIOS ===== */
+
+.services {
+  padding: 140px 8%;
+  position: relative;
+  background: linear-gradient(to bottom, var(--bg-soft), var(--bg-main));
+}
+
+.services-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 80px auto;
+}
+
+.services-header h2 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.services-header p {
+  color: var(--text-secondary);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ===== CARD ===== */
+
+.service-card {
+  position: relative;
+  padding: 50px;
+  border-radius: 20px;
+  background: var(--mockup-header-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.service-card h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.service-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.service-icon {
+  font-size: 14px;
+  color: var(--accent-cyan);
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+/* Glow effect on hover */
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    var(--accent-cyan),
+    #8c00ff,
+    var(--accent-cyan)
+  );
+  opacity: 0;
+  transition: 0.4s;
+  z-index: -1;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  border: 1px solid rgba(0, 240, 255, 0.4);
+  box-shadow: 0 20px 60px var(--glow-primary);
+}
+
+.service-card:hover::before {
+  opacity: 0.08;
+}
+/* ===== PROYECTOS ===== */
+
+.projects {
+  padding: 140px 8%;
+  background:
+    radial-gradient(
+      circle at 30% 20%,
+      rgba(0, 240, 255, 0.08),
+      transparent 40%
+    ),
+    linear-gradient(
+      to bottom,
+      var(--projects-gradient-start),
+      var(--projects-gradient-end)
+    );
+}
+
+.projects-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.projects-header h2 {
+  font-size: 42px;
+}
+
+/* ===== CARD PRINCIPAL ===== */
+
+.project-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px;
+  border-radius: 25px;
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--card-border);
+  transition: 0.4s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 80px var(--card-hover-shadow);
+  border: 1px solid var(--card-hover-border);
+}
+
+/* ===== MOCKUPS ===== */
+
+.project-mockup {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1200px;
+}
+/* ===== MACBOOK ===== */
+
+.macbook {
+  position: relative;
+  width: 520px;
+  transform: rotateY(-8deg) rotateX(3deg);
+  transition: 0.4s ease;
+}
+.macbook .screen {
+  background: var(--device-screen-dark);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+}
+.macbook .screen img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+.macbook .base {
+  height: 20px;
+  background: var(--device-base-gradient);
+  border-radius: 0 0 20px 20px;
+  margin-top: -5px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+/* ===== IPHONE ===== */
+
+.iphone {
+  position: absolute;
+  right: 40px;
+  bottom: -20px;
+  width: 160px;
+  transform: rotateY(12deg) rotateX(5deg);
+  transition: 0.4s ease;
+}
+
+.iphone .screen {
+  background: var(--device-screen-dark);
+  padding: 8px;
+  border-radius: 30px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  border: 3px solid var(--iphone-border);
+}
+
+.iphone .screen img {
+  width: 100%;
+  border-radius: 22px;
+  display: block;
+}
+/* ===== HOVER EFECTO 3D ===== */
+
+.project-card:hover .macbook {
+  transform: rotateY(-2deg) rotateX(0deg) translateY(-10px);
+}
+
+.project-card:hover .iphone {
+  transform: rotateY(5deg) rotateX(0deg) translateY(-5px);
+}
+
+/* ===== GLOW SUAVE ===== */
+
+.macbook::after,
+.iphone::after {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border-radius: inherit;
+  background: linear-gradient(
+    45deg,
+    var(--accent-cyan),
+    var(--accent-secondary)
+  );
+  opacity: 0;
+  z-index: -1;
+  filter: blur(30px);
+  transition: 0.4s;
+}
+
+.project-card:hover .macbook::after,
+.project-card:hover .iphone::after {
+  opacity: 0.15;
+}
+
+/* ===== INFO ===== */
+
+.project-info {
+  flex: 1;
+}
+
+.project-industry {
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+}
+
+.project-info h3 {
+  font-size: 28px;
+  margin: 20px 0;
+}
+
+.project-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.project-info li {
+  margin-bottom: 15px;
+  color: var(--text-secondary);
+  position: relative;
+  padding-left: 25px;
+}
+
+.project-info li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent-cyan);
+  font-size: 18px;
+}
+.project-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: white;
+  background: linear-gradient(
+    90deg,
+    var(--accent-cyan),
+    var(--accent-secondary)
+  );
+  transition: 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0, 240, 255, 0.3);
+}
+
+.project-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0, 240, 255, 0.5);
+}
+/* ===== UPCOMING ===== */
+
+.upcoming {
+  text-align: center;
+  margin-top: 80px;
+  font-size: 18px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+/* ===== FILOSOFÍA ===== */
+
+.philosophy {
+  padding: 160px 8%;
+  text-align: center;
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    var(--philosophy-bg-start),
+    var(--philosophy-bg-end)
+  );
+  overflow: hidden;
+}
+
+/* Fondo glow suave */
+
+.philosophy::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--glow-primary), transparent 70%);
+  top: -200px;
+  left: -200px;
+  filter: blur(80px);
+}
+
+.philosophy::after {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--glow-secondary), transparent 70%);
+  bottom: -200px;
+  right: -200px;
+  filter: blur(80px);
+}
+
+.philosophy-container {
+  max-width: 900px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.philosophy h2 {
+  font-size: 48px;
+  font-weight: 700;
+  margin: 30px 0;
+  line-height: 1.3;
+}
+
+.philosophy-highlight {
+  font-size: 22px;
+  line-height: 1.6;
+  background: linear-gradient(
+    90deg,
+    var(--accent-cyan),
+    var(--accent-secondary)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 500;
+}
+
+/* Línea decorativa */
+
+.philosophy-container::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 4px;
+  margin: 60px auto 0;
+  background: linear-gradient(
+    90deg,
+    var(--accent-cyan),
+    var(--accent-secondary)
+  );
+  border-radius: 5px;
+  box-shadow: 0 0 20px var(--accent-cyan);
+}
+/* ===== CTA FINAL ===== */
+
+.final-cta {
+  padding: 160px 8%;
+  text-align: center;
+  position: relative;
+  background: var(--bg-soft);
+  overflow: hidden;
+}
+
+/* Glow intenso de fondo */
+
+.final-cta::before {
+  content: "";
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.25), transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(120px);
+  z-index: 0;
+}
+
+.cta-container {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: auto;
+}
+
+.final-cta h2 {
+  font-size: 48px;
+  line-height: 1.3;
+  margin-bottom: 60px;
+}
+
+/* BOTÓN */
+
+.cta-button {
+  display: inline-block;
+  padding: 18px 50px;
+  font-size: 16px;
+  letter-spacing: 2px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #000;
+  background: linear-gradient(90deg, var(--accent-cyan), #00c3ff);
+  transition: 0.4s ease;
+  box-shadow: 0 15px 40px rgba(0, 240, 255, 0.4);
+}
+
+.cta-button:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 60px rgba(0, 240, 255, 0.6);
+}
+
+/*----------------------------*/
+/*----------RESPONSIVE--------*/
+/*----------------------------*/
+
+@media (max-width: 1024px) {
+  /* HERO */
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 60px;
+  }
+
+  .hero-left {
+    max-width: 100%;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .mockup {
+    width: 380px;
+    height: 280px;
+  }
+
+  /* ABOUT */
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 60px;
+  }
+
+  .about p {
+    margin: auto;
+  }
+
+  /* SERVICES */
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* PROJECTS */
+  .project-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 50px;
+  }
+
+  .project-info {
+    margin-top: 20px;
+  }
+
+  .macbook {
+    width: 420px;
+  }
+
+  .iphone {
+    right: 20px;
+    width: 130px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* NAV */
+  .nav-links {
+    position: fixed;
+    inset: 0;
+    height: 100vh;
+    width: 100%;
+    background: var(--bg-main);
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    transform: translateY(-100%);
+    transition: transform 0.5s ease;
+    z-index: 2000;
+  }
+  .nav-links a {
+    font-size: 1.4rem;
+    color: var(--text-main);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+  }
+  .nav-links.active {
+    transform: translateY(0);
+  }
+  .nav-links.active a {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .nav-links.active a:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+  .nav-links.active a:nth-child(2) {
+    transition-delay: 0.2s;
+  }
+  .nav-links.active a:nth-child(3) {
+    transition-delay: 0.3s;
+  }
+  .nav-links.active a:nth-child(4) {
+    transition-delay: 0.4s;
+  }
+  .nav-links.active a:nth-child(5) {
+    transition-delay: 0.5s;
+  }
+  .hamburger {
+    display: block;
+    z-index: 2001;
+  }
+  .navbar {
+    padding: 18px 6%;
+    width: 100vw;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 120px 6% 80px 6%;
+  }
+
+  .hero-left h1 {
+    font-size: 2.2rem;
+  }
+
+  .mockup {
+    width: 320px;
+    height: 240px;
+  }
+
+  /* ABOUT */
+  .about {
+    padding: 100px 6%;
+    overflow-x: hidden;
+  }
+
+  .about h2 {
+    font-size: 32px;
+  }
+
+  .image-frame img {
+    width: 260px;
+  }
+  /* SERVICES */
+  .services {
+    padding: 100px 6%;
+  }
+
+  .services-header h2 {
+    font-size: 32px;
+  }
+
+  .service-card {
+    padding: 35px;
+  }
+
+  /* PROJECTS */
+  .projects {
+    padding: 100px 6%;
+  }
+
+  .projects-header h2 {
+    font-size: 32px;
+  }
+
+  .macbook {
+    width: 320px;
+  }
+
+  .iphone {
+    width: 110px;
+    right: 0;
+    bottom: -10px;
+  }
+
+  /* PHILOSOPHY */
+  .philosophy {
+    padding: 120px 6%;
+  }
+
+  .philosophy h2 {
+    font-size: 32px;
+  }
+
+  .philosophy-highlight {
+    font-size: 18px;
+  }
+
+  /* CTA */
+  .final-cta {
+    padding: 120px 6%;
+  }
+
+  .final-cta h2 {
+    font-size: 30px;
+  }
+
+  .cta-button {
+    padding: 16px 36px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 480px) {
+  .hero-left h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-left p {
+    font-size: 14px;
+  }
+
+  .mockup {
+    width: 280px;
+    height: 210px;
+  }
+
+  .macbook {
+    width: 260px;
+  }
+
+  .iphone {
+    width: 90px;
+  }
+
+  .service-card {
+    padding: 28px;
+  }
+
+  .project-card {
+    padding: 30px;
+    margin-bottom: 3vh;
+  }
+
+  .project-info h3 {
+    font-size: 20px;
+  }
+
+  .project-info li {
+    font-size: 14px;
+  }
+
+  .philosophy h2 {
+    font-size: 26px;
+  }
+
+  .final-cta h2 {
+    font-size: 24px;
+  }
+}
