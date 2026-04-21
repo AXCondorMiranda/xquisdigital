@@ -93,3 +93,85 @@ document.querySelectorAll(".nav-links a").forEach((link) => {
     body.classList.remove("menu-open");
   });
 });
+/* =========================
+   COUNTER ANIMATION
+========================= */
+
+const counters = document.querySelectorAll(".counter");
+
+const animateCounters = (entries, observer) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+
+    const counter = entry.target;
+    const target = +counter.getAttribute("data-target");
+
+    let count = 0;
+    const speed = target / 60;
+
+    const updateCount = () => {
+      if (count < target) {
+        count += speed;
+        counter.innerText = Math.ceil(count);
+        requestAnimationFrame(updateCount);
+      } else {
+        counter.innerText = target;
+      }
+    };
+
+    updateCount();
+    observer.unobserve(counter);
+  });
+};
+
+const observer = new IntersectionObserver(animateCounters, {
+  threshold: 0.6
+});
+
+counters.forEach(counter => {
+  observer.observe(counter);
+});
+/* =========================
+   PROCESS TIMELINE ANIMATION
+========================= */
+
+const timeline = document.querySelector(".timeline");
+const timelineItems = document.querySelectorAll(".timeline-item");
+
+const timelineObserver = new IntersectionObserver(
+  (entries) => {
+
+    entries.forEach(entry => {
+
+      if (!entry.isIntersecting) return;
+
+      timeline.classList.add("active");
+
+      timelineItems.forEach((item, index) => {
+
+        setTimeout(() => {
+          item.classList.add("visible");
+        }, index * 250);
+
+      });
+
+    });
+
+  },
+  {
+    threshold: 0.3
+  }
+);
+
+timelineObserver.observe(timeline);
+const pricingBtn = document.getElementById("pricingBtn");
+const pricingDrawer = document.getElementById("pricingDrawer");
+const closePricing = document.getElementById("closePricing");
+
+pricingBtn.addEventListener("click", () => {
+  pricingDrawer.classList.add("active");
+});
+
+closePricing.addEventListener("click", () => {
+  pricingDrawer.classList.remove("active");
+});
