@@ -6,12 +6,12 @@ const toggle = document.getElementById("theme-toggle");
 
 /* Cargar preferencia guardada */
 if (localStorage.getItem("theme") === "light") {
-  document.body.classList.add("light-mode");
+  document.documentElement.classList.add("light-mode");
 }
 
 /* Cambiar modo al hacer click */
 toggle.addEventListener("click", () => {
-  document.body.classList.toggle("light-mode");
+  document.documentElement.classList.toggle("light-mode");
 
   if (document.body.classList.contains("light-mode")) {
     localStorage.setItem("theme", "light");

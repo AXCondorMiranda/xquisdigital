@@ -5,12 +5,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Xquis Digital</title>
-  <link rel="stylesheet" href="style.css" />
+  <script>
+    (function () {
+      const theme = localStorage.getItem("theme");
+      if (theme === "light") {
+        document.documentElement.classList.add("light-mode");
+      }
+    })();
+  </script>
+  <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+  <noscript>
+    <link rel="stylesheet" href="style.css">
+  </noscript>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
+  <link rel="preload" as="style"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap"
-    rel="stylesheet" />
+    onload="this.onload=null;this.rel='stylesheet'">
+
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap"
+      rel="stylesheet">
+  </noscript>
 </head>
 
 <body>
@@ -115,7 +133,8 @@
 
       <div class="about-image">
         <div class="image-frame">
-          <img src="img/Xavier.jpeg" alt="Director de Xquis Digital Studio" />
+          <img src="img/Xavier.webp" width="260" height="390" loading="lazy" decoding="async"
+            alt="Director de Xquis Digital Studio" />
         </div>
       </div>
     </div>
@@ -279,14 +298,14 @@
       <div class="project-mockup">
         <div class="device macbook">
           <div class="screen">
-            <img src="img/mockup-desktop-aryu.jpg" alt="Aryu Desktop" />
+            <img src="img/mockup-desktop-aryu.webp" alt="Aryu Desktop" />
           </div>
           <div class="base"></div>
         </div>
 
         <div class="device iphone">
           <div class="screen">
-            <img src="img/mockup-mobile-aryu.jpg" alt="Aryu Mobile" />
+            <img src="img/mockup-mobile-aryu.webp" alt="Aryu Mobile" />
           </div>
         </div>
       </div>
@@ -312,14 +331,15 @@
       <div class="project-mockup">
         <div class="device macbook">
           <div class="screen">
-            <img src="img/mockup-desktop-gravitek.jpg" alt="Gravitek Desktop" />
+            <img src="img/mockup-desktop-gravitek.webp" alt="Gravitek Desktop" />
           </div>
           <div class="base"></div>
         </div>
 
         <div class="device iphone">
           <div class="screen">
-            <img src="img/mockup-mobile-gravitek.jpg" alt="Gravitek Mobile" />
+            <img src="img/mockup-mobile-gravitek.webp" width="350" height="760" loading="lazy" decoding="async"
+              alt="Gravitek Mobile" />
           </div>
         </div>
       </div>
@@ -345,14 +365,14 @@
       <div class="project-mockup">
         <div class="device macbook">
           <div class="screen">
-            <img src="img/mockup-desktop-joysi.jpg" alt="Joysi Desktop" />
+            <img src="img/mockup-desktop-gravitek.webp" alt="Joysi Desktop" />
           </div>
           <div class="base"></div>
         </div>
 
         <div class="device iphone">
           <div class="screen">
-            <img src="img/mockup-mobile-joysi.jpg" alt="Joysi Mobile" />
+            <img src="img/mockup-mobile-joysi.webp" alt="Joysi Mobile" />
           </div>
         </div>
       </div>
